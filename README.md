@@ -26,7 +26,6 @@
 - Informacion del Usuario
 ![](docs/PerfilUser.PNG)
 
-PerfilUser.PNG
 # Integrantes de equipo
 * Eduardo Emanuel Un Suaste
 * Ricardo Che Cauich
