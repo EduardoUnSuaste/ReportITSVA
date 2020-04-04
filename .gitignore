@@ -4,4 +4,5 @@ node_modules
 # npm
 package-lock.json
 
-src/database.js
+# environment variables
+.env
