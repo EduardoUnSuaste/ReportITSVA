@@ -7,8 +7,8 @@ const flash = require('connect-flash');
 const passport = require('passport');
 
 //inicializacion
-require('./database');
 const app = express();
+require('./database');
 require('./config/passport');
 
 
@@ -36,7 +36,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
 
 //variables globales
 app.use((req, res, next) => {
