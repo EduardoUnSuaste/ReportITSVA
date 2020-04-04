@@ -23,13 +23,8 @@ app.engine('.hbs',exphbs({
 }));
 app.set('view engine', '.hbs');
 
-
 // funciones ejecutadas al servidor
-//app.use(express.urlencoded({extended: false}));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
+app.use(express.urlencoded({extended: false}));
 
 app.use(methodOverride('_method'));
 app.use(session({
