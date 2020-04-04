@@ -51,6 +51,7 @@ notesCtrl.updateNote = async (req, res) => {
   req.flash("success_msg", "Actualizacion exitosa");
   res.redirect("/notes");
 };
+
 //eliminacion de la nota con el id del usuario
 notesCtrl.deleteNote = async (req, res) => {
   await Note.findByIdAndDelete(req.params.id);
