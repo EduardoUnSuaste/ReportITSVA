@@ -56,7 +56,7 @@ usersCtrl.logout = (req, res) => {
   res.redirect("/users/signin");
 };
 
-//controladores del perfil, actualizar 
+//controladores del perfil, actualizar
 usersCtrl.editar = async (req, res) => {
   res.render("users/actualizar");
 };
