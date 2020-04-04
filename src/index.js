@@ -3,17 +3,8 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
-
 const flash = require('connect-flash');
 const passport = require('passport');
-
-const bodyParser = require("body-parser");
-
-const Handlebars = require("handlebars");
-const {
-  allowInsecurePrototypeAccess
-} = require("@handlebars/allow-prototype-access");
-
 
 //inicializacion
 require('./database');
