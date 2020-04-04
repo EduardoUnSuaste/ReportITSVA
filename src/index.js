@@ -3,8 +3,17 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
+
 const flash = require('connect-flash');
 const passport = require('passport');
+
+const bodyParser = require("body-parser");
+
+const Handlebars = require("handlebars");
+const {
+  allowInsecurePrototypeAccess
+} = require("@handlebars/allow-prototype-access");
+
 
 //inicializacion
 require('./database');
@@ -19,19 +28,28 @@ app.engine('.hbs',exphbs({
     defaultLayout:'main',
     layoutDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
-    extname: '.hbs'
+    extname: '.hbs',
+    handlebars: allowInsecurePrototypeAccess(Handlebars), //Fix
+    helpers: {
+      fixndex: index => parseFloat(index) + 1
+    }
 }));
 app.set('view engine', '.hbs');
 
-
+//midleware
 // funciones ejecutadas al servidor
-app.use(express.urlencoded({extended: false}));
+//app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 app.use(methodOverride('_method'));
 app.use(session({
   secret: 'secret',
   resave: true,
   saveUninitialized: true
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
