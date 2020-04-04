@@ -19,19 +19,16 @@ app.engine('.hbs',exphbs({
     defaultLayout:'main',
     layoutDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
-    extname: '.hbs',
-    handlebars: allowInsecurePrototypeAccess(Handlebars), //Fix
-    helpers: {
-      fixndex: index => parseFloat(index) + 1
-    }
+    extname: '.hbs'
 }));
 app.set('view engine', '.hbs');
 
-//midleware
+
 // funciones ejecutadas al servidor
 //app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 app.use(methodOverride('_method'));
